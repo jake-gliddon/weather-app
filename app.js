@@ -26,11 +26,11 @@ app.post('/', function (req, res) {
             const iconURL = "https://openweathermap.org/img/wn/" + icon + "@2x.png";
             const temp = weatherData.main.temp;
             const tempfeels = weatherData.main.feels_like;
-            res.write('<button class="btn btn-primary"><a href="/signup" style="text-decoration: none; margin-bottom: 50px;">sign up</a></button>');
+            res.write('<html><button class="btn btn-primary"><a href="/signup" style="text-decoration: none; margin-bottom: 50px;">sign up</a></button>');
             res.write('<button class="btn btn-primary"><a href="/" style="text-decoration: none; margin-bottom: 50px;">Back</a></button>');
             res.write("<h1>The temperature in " + name + " is " + temp + " Degrees Celcius, but it feels like " + tempfeels + " Degrees Celcius</h1>");
             res.write("<h2>with " + desc + "</h2>");
-            res.write("<img src='" + iconURL + "'>");
+            res.write("<img src='" + iconURL + "'></html>");
             res.send();
         });
     });
