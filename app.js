@@ -2,9 +2,10 @@ const express = require('express');
 const HTTPS = require('https');
 const bodyParser = require('body-parser');
 const app = express();
+const path = require('path');
 
 app.use(bodyParser.urlencoded({extended:true}));
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(path.join(__dirname, '/public')));
 
 app.get('/', function(req, res){
     res.sendFile(__dirname + "/index.html");

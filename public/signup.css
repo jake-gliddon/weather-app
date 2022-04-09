@@ -1,24 +1,24 @@
-
-
 html, body {
   height: 100%;
 }
 
-body {
+body, .h3 {
   display: flex;
   align-items: center;
-  justify-content: center;
   padding-top: 40px;
   padding-bottom: 40px;
   background-color: #000;
   color: aliceblue;
 }
-
+.btn {
+  margin-bottom: 35px;
+}
 .form-signin {
   width: 100%;
   max-width: 330px;
   padding: 15px;
-  margin: 50% auto;
+  margin: auto;
+  color: #000;
 }
 
 .form-signin .checkbox {
@@ -29,13 +29,17 @@ body {
   z-index: 2;
 }
 
-.form-signin input[type="email"] {
+.top {
   margin-bottom: -1px;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }
 
-.form-signin input[type="password"] {
+.middle {
+  border-radius: 0;
+}
+
+.bottom {
   margin-bottom: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
