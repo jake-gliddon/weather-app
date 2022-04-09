@@ -2,7 +2,10 @@ const express = require('express');
 const HTTPS = require('https');
 const bodyParser = require('body-parser');
 const app = express();
+const request = require('request');
 const path = require('path');
+const { Http2ServerRequest } = require('http2');
+const { parse } = require('path');
 
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static(path.join(__dirname, '/public')));
@@ -44,7 +47,46 @@ app.get('/signup', function(req, res) {
 });
 
 app.post('/signup', function(req, res) {
+    const firstName = req.body.FirstName;
+    const lastName = req.body.LastName;
+    const email = req.body.email;
+    const data = {
+        members: [
+            {
+                email_address: email,
+                status: "subscribed",
+                merge_fields: {
+                    FNAME: firstName,
+                    LNAME: lastName
+                }
+            }
+        ]
+    }
 
+    const jsonData = JSON.stringify(data);
+    const listID = "22396d9b50";
+    const options = {
+        method: "POST",
+        auth: "jake1:64c35a3eae363d34b6e6a934804751e5-us14"
+    };
+
+    const url = 'https://us14.api.mailchimp.com/3.0/lists/' + listID;
+
+   const request =  HTTPS.request(url, options, function(response){
+       if (response.statusCode === 200) {
+           res.sendFile(__dirname + '/public/pages/success.html');
+        } else {
+           res.sendFile(__dirname + '/public/pages/failure.html');
+       };
+        response.on("data", function(data){
+            console.log(JSON.parse(data));
+        });
+    });
+
+    request.write(jsonData);
+    request.end();
+
+    console.log(firstName, lastName, email);
 });
 
 app.listen(process.env.PORT || 3001, function(){

@@ -25,18 +25,18 @@
                 <h1 class="h3 mb-3 fw-normal">Please sign up to our newsletter</h1>
                 <button class="btn btn-primary"><a href='/' style="color: white; text-decoration: none; margin-bottom: 50px;">Back</a></button>
 
-                <form>
+                <form method="post" action="/signup">
                     
                     <div class="form-floating">
-                        <input type="text" class="form-control top" id="floatingFirstName" placeholder="name@example.com">
+                        <input type="text" class="form-control top" name="FirstName" id="floatingFirstName" placeholder="name@example.com">
                         <label for="floatingFirstName">First Name</label>
                     </div>
                     <div class="form-floating">
-                        <input type="text" class="form-control middle" id="floatingLastName" placeholder="name@example.com">
+                        <input type="text" class="form-control middle" name="LastName" id="floatingLastName" placeholder="name@example.com">
                         <label for="floatingLastName">Last Name</label>
                     </div>
                     <div class="form-floating">
-                        <input type="email" class="form-control bottom" id="floatingEmail" placeholder="name@example.com">
+                        <input type="email" class="form-control bottom" name="email" id="floatingEmail" placeholder="name@example.com">
                         <label for="floatingEmail">Email address</label>
                     </div>
                     <!-- <div class="form-floating">
