@@ -34,7 +34,7 @@ app.post('/', function (req, res) {
             res.write('<button class="btn btn-lg btn-primary"><a href="/" style="color: white; text-decoration: none; margin-bottom: 50px;">Back</a></button>');
             res.write("<div><h1 class='h2'>" + name + " Weather Today</h1><img style='padding: 0; height: 150px; width: 150px;' src='" + iconURL + "'><br/>");
             res.write("<span class='h2'>" + desc + "</span></div></div>");
-            res.write("<h1 class='h3'>The temperature is: <br/><div style='font-size: 3rem; '>" + temp + "&#8451</div><br/> but it feels like <br/><div style='font-size: 3rem;'>" + tempfeels + "&#8451</div></h1></div></main></body</html>");
+            res.write("<h1 class='h3'>The temperature is: <br/><div style='font-size: 3rem; '>" + temp + "&#8451</div><br/> but it feels like: <br/><div style='font-size: 3rem;'>" + tempfeels + "&#8451</div></h1></div></main></body</html>");
             res.send();
         });
     });
