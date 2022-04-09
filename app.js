@@ -4,8 +4,6 @@ const bodyParser = require('body-parser');
 const app = express();
 const request = require('request');
 const path = require('path');
-const { Http2ServerRequest } = require('http2');
-const { parse } = require('path');
 
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static(path.join(__dirname, '/public')));
@@ -34,9 +32,9 @@ app.post('/', function (req, res) {
             res.write('<link href="/main.css" rel="stylesheet" type="text/css"></head><body class="text-center"><main class="form-signin"><div class="container"><img class="brand" src="/images/JakeWeather.png" height="150px" width="150px">')
             res.write('<button class="btn btn-lg btn-primary" style="margin-right: 30px;"><a href="/signup" style="color: white; text-decoration: none; margin-bottom: 50px;">sign up</a></button>');
             res.write('<button class="btn btn-lg btn-primary"><a href="/" style="color: white; text-decoration: none; margin-bottom: 50px;">Back</a></button>');
-            res.write("<h1 class='h3'>The temperature in " + name + " is " + temp + " Degrees Celcius, but it feels like " + tempfeels + " Degrees Celcius</h1>");
-            res.write("<h2 class='h3'>with " + desc + "</h2>");
-            res.write("<img src='" + iconURL + "'></div></main></body</html>");
+            res.write("<div><h1 class='h2'>" + name + " Weather Today</h1><img style='padding: 0; height: 150px; width: 150px;' src='" + iconURL + "'><br/>");
+            res.write("<span class='h2'>" + desc + "</span></div></div>");
+            res.write("<h1 class='h3'>The temperature is: <br/><div style='font-size: 3rem; '>" + temp + "&#8451</div><br/> but it feels like <br/><div style='font-size: 3rem;'>" + tempfeels + "&#8451</div></h1></div></main></body</html>");
             res.send();
         });
     });
