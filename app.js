@@ -29,7 +29,7 @@ app.post('/', function (req, res) {
             const tempfeels = weatherData.main.feels_like;
             res.write('<html><head><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">')
             res.write('<link href="/main.css" rel="stylesheet" type="text/css"></head><body class="text-center"><main class="form-signin"><div class="container">')
-            res.write('<button class="btn btn-lg btn-primary"><a href="/signup" style="color: white; text-decoration: none; margin-bottom: 50px;">sign up</a></button>');
+            res.write('<button class="btn btn-lg btn-primary" style="margin-right: 30px;"><a href="/signup" style="color: white; text-decoration: none; margin-bottom: 50px;">sign up</a></button>');
             res.write('<button class="btn btn-lg btn-primary"><a href="/" style="color: white; text-decoration: none; margin-bottom: 50px;">Back</a></button>');
             res.write("<h1 class='h3'>The temperature in " + name + " is " + temp + " Degrees Celcius, but it feels like " + tempfeels + " Degrees Celcius</h1>");
             res.write("<h2 class='h3'>with " + desc + "</h2>");
